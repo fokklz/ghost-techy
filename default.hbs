@@ -17,6 +17,20 @@
     {{!-- Theme assets - use the {{asset}} helper to reference styles & scripts, this will take care of caching and cache-busting automatically --}}
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}">
 
+    {{!-- 'markdown-header' dependencies --}}
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+    <link href="{{asset "custom-techy/css/markdown-header.css"}}" rel="stylesheet">
+    <script src="{{asset "custom-techy/js/markdown-header.js"}}"></script>
+
+    {{!-- 'markdown-annotations' dependencies --}}
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <link href="{{asset "custom-techy/css/markdown-annotations.css"}}" rel="stylesheet">
+    <script src="{{asset "custom-techy/js/markdown-annotations.js"}}"></script>
+
+    {{!-- For displaying nice looking file trees from JSON --}}
+    <script src=" https://cdn.jsdelivr.net/npm/treeify@1.1.0/treeify.min.js "></script>
+    
     {{!-- Custom background color --}}
     <style>
         :root {
@@ -65,6 +79,12 @@
 
 {{!-- Scripts - handle responsive videos, infinite scroll, and navigation dropdowns --}}
 <script src="{{asset "built/source.js"}}"></script>
+
+<!-- Include the Tippy.js library for tooltips -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<!-- Add markdown annotation tooltips -->
+<script src="{{asset "custom-techy/js/markdown-annotations.js"}}"></script>
 
 {{!-- Ghost outputs required functional scripts with this tag, it should always be the last thing before the closing body tag --}}
 {{ghost_foot}}

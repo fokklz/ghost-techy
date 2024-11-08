@@ -58,6 +58,33 @@
         </div>
     {{/if}}
 
+    <script>
+        document.querySelectorAll("a").forEach((link) => {
+            // Check if the link has one of the specified classes
+            const hasRequiredClass =
+                link.classList.contains("gh-card-link") ||
+                link.classList.contains("gh-portal-close") ||
+                link.classList.contains("gh-button") ||
+                link.classList.contains("gh-article-tag") ||
+                link.classList.contains("kg-btn") ||
+                link.classList.contains("gh-navigation-logo");
+        
+            const closest = link.closest("nav") || link.closest(".gh-article-meta");
+        
+            // If neither condition is met, set the link to open in a new tab
+            if (!hasRequiredClass && closest == null) {
+                link.setAttribute("target", "_blank");
+                link.setAttribute("rel", "noopener noreferrer");
+            }
+        });
+    </script>
+
+    {{!-- 'post-toc' dependencies --}}
+    <script src="https://cdn.jsdelivr.net/npm/tocbot@4.21.0/dist/tocbot.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tocbot@4.21.0/dist/tocbot.min.css" rel="stylesheet" />
+    <link href="{{asset "custom-techy/css/post-toc.css"}}" rel="stylesheet">
+    <script src="{{asset "custom-techy/js/post-toc.js"}}"></script>
+
 </main>
 
 {{/post}}
