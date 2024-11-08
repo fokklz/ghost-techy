@@ -1,0 +1,61 @@
+.gh-content {
+  position: relative;
+}
+.gh-toc > .toc-list {
+  position: relative;
+}
+.toc-list {
+  overflow: hidden;
+  list-style: none;
+}
+@media (min-width: 1300px) {
+  .gh-sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 2rem;
+    margin-top: 4vmin;
+    grid-column: wide-start / main-start;
+  }
+  .gh-toc {
+    position: sticky;
+    top: 4vmin;
+  }
+  li.toc-list-item {
+    font-size: 1.4rem;
+  }
+}
+.gh-toc .is-active-link::before {
+  background-color: var(--ghost-accent-color);
+}
+a.toc-link {
+  display: inline-flex;
+  font-weight: 400;
+  height: 100%;
+  line-height: 1.2em;
+  padding: 6px 0;
+  text-decoration: none;
+  transition: 0.4s ease;
+  font-size: 100% !important;
+}
+li.toc-list-item {
+  color: #738a94 !important;
+}
+a.toc-link:hover {
+  color: #15171a !important;
+}
+.is-collapsible a.is-active-link,
+a.is-active-link {
+  color: #15171a !important;
+  font-weight: 500;
+}
+@media (max-width: 1400px) {
+  .gh-toc {
+    background: #fff;
+    border-radius: 1em;
+    box-shadow: 0 10px 50px rgba(25, 37, 52, 0.14),
+      0 2px 5px rgba(25, 37, 52, 0.03);
+    padding: 30px;
+    width: 100%;
+  }
+}
