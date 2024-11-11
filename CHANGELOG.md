@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.0.1] - 2024-11-11
+### :bug: Bug Fixes
+- [`8d99447`](https://github.com/fokklz/ghost-techy/commit/8d994476486f37692e3f31e4bbf89a2e334c33d7) - **md-annotations**: moved deletion *(commit by [@fokklz](https://github.com/fokklz))*
+
+### :wrench: Chores
+- [`b060122`](https://github.com/fokklz/ghost-techy/commit/b06012286e32d9c9d58b90cba557b9f0f0dbd9ab) - bump version to 1.0.1 *(commit by [@fokklz](https://github.com/fokklz))*
+
+
 ## [v1.0.0] - 2024-11-08
 ### :sparkles: New Features
 - [`d45012d`](https://github.com/fokklz/ghost-techy/commit/d45012d490864ecaa8ec290e7446b6001dcf3457) - **ToC**: Add Table of Contents to posts *(commit by [@fokklz](https://github.com/fokklz))*
@@ -15,3 +23,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [`6eff51b`](https://github.com/fokklz/ghost-techy/commit/6eff51b1facecff71f7398976bb42ac886120019) - updated meta *(commit by [@fokklz](https://github.com/fokklz))*
 
 [v1.0.0]: https://github.com/fokklz/ghost-techy/compare/v0.0.0...v1.0.0
+[v1.0.1]: https://github.com/fokklz/ghost-techy/compare/v1.0.0...v1.0.1
