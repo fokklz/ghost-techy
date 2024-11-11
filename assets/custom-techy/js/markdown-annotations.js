@@ -18,6 +18,7 @@ function findAndMarkAnnotationsInCode(preElement, index) {
   const { fullText, nodeInfoList } = getFullTextAndNodeInfo(codeElement);
 
   let innerIndex = 0;
+  let upForDeletion = [];
   // Match '#::' and the rest of the line
   const regex = /#::.*$/gm;
   let match;
@@ -31,7 +32,8 @@ function findAndMarkAnnotationsInCode(preElement, index) {
       matchIndex + matchLength
     );
 
-    const annotationText = match[0].substring(3).trim(); // Extract text after '#::'
+    // Extract text after '#::'
+    const annotationText = match[0].substring(3).trim();
 
     // Create a range covering the match
     const range = document.createRange();
@@ -65,7 +67,10 @@ function findAndMarkAnnotationsInCode(preElement, index) {
       zIndex: 99999,
     });
 
-    // Remove the '#::' comment and the rest of the line from the code element
+    upForDeletion.push(range);
+  }
+
+  for (const range of upForDeletion) {
     range.deleteContents();
   }
 }
