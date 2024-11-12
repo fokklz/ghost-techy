@@ -92,7 +92,7 @@ jobs:
         with:
           token: ${{ github.token }}
           tag: "v${{ needs.build.outputs.version }}"
-          excludeTypes: "ci,build,docs,style"
+          excludeTypes: "docs,style"
 
       - name: Commit and Push Changelog
         run: |
