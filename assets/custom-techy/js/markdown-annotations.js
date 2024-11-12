@@ -17,13 +17,24 @@ function findAndMarkAnnotationsInCode(preElement, index) {
 
   const { fullText, nodeInfoList } = getFullTextAndNodeInfo(codeElement);
 
-  let innerIndex = 0;
-  // Match '#::' and the rest of the line
   const regex = /#::.*$/gm;
+  const matches = [];
   let match;
   while ((match = regex.exec(fullText)) !== null) {
-    const matchIndex = match.index;
-    const matchLength = match[0].length;
+    matches.push({
+      index: match.index,
+      length: match[0].length,
+      text: match[0],
+    });
+  }
+
+  let innerIndex = 0;
+
+  // Process matches in reverse order
+  for (let i = matches.length - 1; i >= 0; i--) {
+    const matchIndex = matches[i].index;
+    const matchLength = matches[i].length;
+    const matchText = matches[i].text;
 
     const startInfo = getNodeAndOffsetFromIndex(nodeInfoList, matchIndex);
     const endInfo = getNodeAndOffsetFromIndex(
@@ -31,7 +42,8 @@ function findAndMarkAnnotationsInCode(preElement, index) {
       matchIndex + matchLength
     );
 
-    const annotationText = match[0].substring(3).trim(); // Extract text after '#::'
+    // Extract text after '#::'
+    const annotationText = matchText.substring(3).trim();
 
     // Create a range covering the match
     const range = document.createRange();
@@ -65,11 +77,9 @@ function findAndMarkAnnotationsInCode(preElement, index) {
       zIndex: 99999,
     });
 
-    // Remove the '#::' comment and the rest of the line from the code element
     range.deleteContents();
   }
 }
-
 // Function to format markdown to HTML
 function formatMarkdownToHTML(markdownText) {
   // special case for line breaks
