@@ -1,7 +1,7 @@
 {
     "name": "techy",
     "description": "Not a default theme for the Ghost publishing platform",
-    "version": "1.0.0-DO-NOT-USE",
+  "version": "IGNORE_THIS",
     "engines": {
         "ghost": ">=5.0.0"
     },
