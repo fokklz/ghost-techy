@@ -1,8 +1,5 @@
 const { series, watch, src, dest, parallel } = require("gulp");
 const pump = require("pump");
-const path = require("path");
-const releaseUtils = require("@tryghost/release-utils");
-const inquirer = require("inquirer");
 
 // gulp plugins and utils
 const livereload = require("gulp-livereload");
@@ -18,9 +15,9 @@ const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
 const easyimport = require("postcss-easy-import");
 
-const REPO = "TryGhost/Source";
-const REPO_READONLY = "TryGhost/Source";
-const CHANGELOG_PATH = path.join(process.cwd(), ".", "changelog.md");
+const packageJson = JSON.parse(fs.readFileSync("./package.json", "utf8"));
+packageJson.version = fs.readFileSync("./VERSION", "utf8").trim();
+fs.writeFileSync("./package.json", JSON.stringify(packageJson, null, 2) + "\n");
 
 function serve(done) {
   livereload.listen();
@@ -74,18 +71,14 @@ function js(done) {
 
 function zipper(done) {
   const filename = require("./package.json").name + ".zip";
-  const newVersion = fs.readFileSync("./VERSION", "utf8").trim();
-
-  const packageJson = JSON.parse(fs.readFileSync("./package.json", "utf8"));
-  packageJson.version = newVersion;
-  fs.writeFileSync("./package.json", JSON.stringify(packageJson, null, 2) + "\n");
-
   pump(
     [
       src([
         "**",
         "!node_modules",
         "!node_modules/**",
+        "!test-env",
+        "!test-env/**",
         "!dist",
         "!dist/**",
         "!yarn-error.log",
@@ -108,83 +101,3 @@ const build = series(css, js);
 exports.build = build;
 exports.zip = series(build, zipper);
 exports.default = series(build, serve, watcher);
-
-exports.release = async () => {
-  const newVersion = fs.readFileSync("./VERSION", "utf8").trim();
-
-  if (!newVersion || newVersion === "") {
-    console.log(`Invalid version: ${newVersion}`);
-    return;
-  }
-
-  console.log(`\nCreating release for ${newVersion}...`);
-
-  const githubToken = process.env.GST_TOKEN;
-
-  if (!githubToken) {
-    console.log(
-      "Please configure your environment with a GitHub token located in GST_TOKEN"
-    );
-    return;
-  }
-
-  try {
-    const result = await inquirer.prompt([
-      {
-        type: "input",
-        name: "compatibleWithGhost",
-        message: "Which version of Ghost is it compatible with?",
-        default: "5.0.0",
-      },
-    ]);
-
-    const compatibleWithGhost = result.compatibleWithGhost;
-
-    const releasesResponse = await releaseUtils.releases.get({
-      userAgent: "Source",
-      uri: `https://api.github.com/repos/${REPO_READONLY}/releases`,
-    });
-
-    if (!releasesResponse || !releasesResponse) {
-      console.log("No releases found. Skipping...");
-      return;
-    }
-
-    let previousVersion =
-      releasesResponse[0].tag_name || releasesResponse[0].name;
-    console.log(`Previous version: ${previousVersion}`);
-
-    const changelog = new releaseUtils.Changelog({
-      changelogPath: CHANGELOG_PATH,
-      folder: path.join(process.cwd(), "."),
-    });
-
-    changelog
-      .write({
-        githubRepoPath: `https://github.com/${REPO}`,
-        lastVersion: previousVersion,
-      })
-      .sort()
-      .clean();
-
-    const newReleaseResponse = await releaseUtils.releases.create({
-      draft: true,
-      preRelease: false,
-      tagName: "v" + newVersion,
-      releaseName: newVersion,
-      userAgent: "Source",
-      uri: `https://api.github.com/repos/${REPO}/releases`,
-      github: {
-        token: githubToken,
-      },
-      content: [`**Compatible with Ghost ≥ ${compatibleWithGhost}**\n\n`],
-      changelogPath: CHANGELOG_PATH,
-    });
-    console.log(
-      `\nRelease draft generated: ${newReleaseResponse.releaseUrl}\n`
-    );
-  } catch (err) {
-    console.error(err);
-    process.exit(1);
-  }
-};
