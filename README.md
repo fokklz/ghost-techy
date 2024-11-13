@@ -19,13 +19,26 @@ There is nothing needed to be done, the headers are added automatically to each 
 
 To add an annotation to a line inside a markdown block, you can use the following syntax:
 
+#### Option 1
+
+You can use `<br>` if you want to add a new line. But multi-line support is not very great on this one.
+
 ```markdown
 var x = 10; #:: This is a variable declaration
 ```
+`This is a variable declaration` will be the content of the info tooltip. 
+
+#### Option 2
+
+This syntax allows for multi-line annotations. without using `<br>`. Just write on multiple lines as you would normally do.
+
+```markdown
+var x = 10; #::1
+
+#1?? This is a variable declaration
+```
 `This is a variable declaration` will be the content of the info tooltip.
 
-Currently only single line annotations are supported, markdown should be parsed for basic formatting. For multi-line annotations, you can use `<br>` for now.
-I will need to think about a better way to handle multi-line annotations. Got some ideas but did not yet play around with them.
 
 ### Post Table of Contents
 
