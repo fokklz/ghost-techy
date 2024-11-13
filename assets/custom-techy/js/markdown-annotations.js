@@ -121,7 +121,7 @@ function findAndMarkAnnotationsInCode(preElement, index) {
 
     // Add the tooltip to the marker
     tippy(marker, {
-      content: formatMarkdownToHTML(annotationText),
+      content: marked.parse(annotationText.replaceAll("\n", "\n\n")),
       placement: "right",
       allowHTML: true,
       interactive: true,
@@ -134,44 +134,50 @@ function findAndMarkAnnotationsInCode(preElement, index) {
     // Remove the annotation from the code
     range.deleteContents();
   }
+
+  removeNewLines(codeElement);
 }
 
-// Function to format markdown to HTML
-function formatMarkdownToHTML(markdownText) {
-  // special case for line breaks
-  markdownText = markdownText.replace(/<br>/g, "\n");
+// Function to remove extra newlines at the end of code
+function removeNewLines(codeElement) {
+  // After processing annotations, recompute fullText and nodeInfoList
+  const { fullText: updatedFullText, nodeInfoList: updatedNodeInfoList } =
+    getFullTextAndNodeInfo(codeElement);
 
-  // Escape HTML characters to prevent injection
-  const escapeHtml = (str) =>
-    str.replace(/[&<>"']/g, (char) => {
-      const escapeChars = {
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;",
-      };
-      return escapeChars[char];
-    });
+  // Find the start index to trim
+  const trimStartIndex = findStartIndexToTrim(updatedFullText);
 
-  // Replace markdown with corresponding HTML tags
-  const formattedText = escapeHtml(markdownText)
-    .replace(/^###### (.*$)/gim, "<h6>$1</h6>") // H6
-    .replace(/^##### (.*$)/gim, "<h5>$1</h5>") // H5
-    .replace(/^#### (.*$)/gim, "<h4>$1</h4>") // H4
-    .replace(/^### (.*$)/gim, "<h3>$1</h3>") // H3
-    .replace(/^## (.*$)/gim, "<h2>$1</h2>") // H2
-    .replace(/^# (.*$)/gim, "<h1>$1</h1>") // H1
-    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") // Bold
-    .replace(/\*(.*?)\*/g, "<em>$1</em>") // Italic
-    .replace(/__(.*?)__/g, "<u>$1</u>") // Underline
-    .replace(/~~(.*?)~~/g, "<del>$1</del>") // Strikethrough
-    .replace(/`(.*?)`/g, "<code>$1</code>") // Inline code
-    .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>') // Links
-    .replace(/---/g, "<hr>") // Horizontal rule
-    .replace(/\n/g, "<br>"); // Line breaks
+  if (trimStartIndex !== null) {
+    const startInfo = getNodeAndOffsetFromIndex(
+      updatedNodeInfoList,
+      trimStartIndex
+    );
+    const lastNodeInfo = updatedNodeInfoList[updatedNodeInfoList.length - 1];
+    const endInfo = {
+      node: lastNodeInfo.node,
+      offset: lastNodeInfo.length,
+    };
 
-  return formattedText;
+    // Create a range from startInfo to endInfo
+    const range = document.createRange();
+    range.setStart(startInfo.node, startInfo.offset);
+    range.setEnd(endInfo.node, endInfo.offset);
+
+    // Delete the contents of the range
+    range.deleteContents();
+  }
+}
+
+// Function to find where to start trimming extra newlines
+function findStartIndexToTrim(fullText) {
+  // Regex to find where more than one consecutive newline at the end starts
+  let regex = /(?:\n\s*){2,}$/;
+  let match = regex.exec(fullText);
+  if (match) {
+    return match.index + 1;
+  } else {
+    return null;
+  }
 }
 
 // Function to build full text and node info
