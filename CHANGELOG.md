@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.1.0] - 2024-11-13
+### :sparkles: New Features
+- [`cdef3a0`](https://github.com/fokklz/ghost-techy/commit/cdef3a02c13c4d5636e48dd5529651a0ce1552fd) - **md-annotations**: improved support *(commit by [@fokklz](https://github.com/fokklz))*
+- [`0c02ae2`](https://github.com/fokklz/ghost-techy/commit/0c02ae2e2f74d2b7160c9dacb53007788f12a23c) - **md-annotations**: using marked for markdown *(commit by [@fokklz](https://github.com/fokklz))*
+
+### :construction_worker: Build System
+- [`6a5127d`](https://github.com/fokklz/ghost-techy/commit/6a5127d7b6ac9514ccaa875d94fa3b5360983123) - update gulpfile.js to be less complex *(commit by [@fokklz](https://github.com/fokklz))*
+
+### :wrench: Chores
+- [`35bdd4c`](https://github.com/fokklz/ghost-techy/commit/35bdd4ccc42756e1be8faf907b0d4eb58e47e134) - updated meta data *(commit by [@fokklz](https://github.com/fokklz))*
+- [`7afbbdc`](https://github.com/fokklz/ghost-techy/commit/7afbbdcbb3c09f72b1a23359940dea93b3fbb461) - bump version to 1.1.0 *(commit by [@fokklz](https://github.com/fokklz))*
+
+
 ## [v1.0.1] - 2024-11-12
 ### :bug: Bug Fixes
 - [`6a7b0c8`](https://github.com/fokklz/ghost-techy/commit/6a7b0c8d862e0bc0b3f256e8b89decbb7a152319) - **md-annotations**: fix deletion bug *(commit by [@fokklz](https://github.com/fokklz))*
@@ -29,3 +42,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [v1.0.0]: https://github.com/fokklz/ghost-techy/compare/v0.0.0...v1.0.0
 [v1.0.1]: https://github.com/fokklz/ghost-techy/compare/v1.0.0...v1.0.1
+[v1.1.0]: https://github.com/fokklz/ghost-techy/compare/v1.0.1...v1.1.0
