@@ -8,23 +8,6 @@
   overflow: hidden;
   list-style: none;
 }
-@media (min-width: 1300px) {
-  .gh-sidebar {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 2rem;
-    margin-top: 4vmin;
-    grid-column: wide-start / main-start;
-  }
-  .gh-toc {
-    position: sticky;
-    top: 4vmin;
-  }
-  li.toc-list-item {
-    font-size: 1.4rem;
-  }
-}
 .gh-toc .is-active-link::before {
   background-color: var(--ghost-accent-color);
 }
@@ -49,7 +32,93 @@ a.is-active-link {
   color: #15171a !important;
   font-weight: 500;
 }
-@media (max-width: 1400px) {
+
+.toc-hamburger {
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.toc-hamburger .line {
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+#gh-mobile-toc {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border: 1px solid #ddd;
+  z-index: 99999;
+}
+
+.gh-sidebar.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin: 0;
+  background-color: var(--background-color);
+  z-index: 99999; /* Ensure it's on top of the content, may need to adjust the overall values to have a simpler time here */
+  border-radius: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+.gh-sidebar.fixed #gh-mobile-toc {
+  background-color: var(--background-color);
+}
+.gh-sidebar.fixed .gh-toc {
+  /*
+  * 30px with of the button
+  * 20px left position
+  * 20px equal padding right
+  * 20px (2x 10px) padding 
+  */
+  padding-left: calc(30px + 20px + 20px + 20px);
+  border-radius: 0;
+}
+
+.gh-sidebar.fixed .toc-hamburger .line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+.gh-sidebar.fixed .toc-hamburger .line:nth-child(2) {
+  opacity: 0;
+}
+.gh-sidebar.fixed .toc-hamburger .line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/*
+MOBILE
+*/
+@media (min-width: 1300px) {
+  .gh-sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 2rem;
+    margin-top: 4vmin;
+    grid-column: wide-start / main-start;
+  }
+  .gh-toc {
+    position: sticky;
+    top: 4vmin;
+  }
+  li.toc-list-item {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 1300px) {
   .gh-toc {
     background: #fff;
     border-radius: 1em;
@@ -57,5 +126,10 @@ a.is-active-link {
       0 2px 5px rgba(25, 37, 52, 0.03);
     padding: 30px;
     width: 100%;
+  }
+
+  /* Only display the hamburger on mobile */
+  #gh-mobile-toc.displayed {
+    display: block;
   }
 }
