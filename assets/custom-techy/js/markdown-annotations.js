@@ -1,5 +1,3 @@
-// Dependencies: tippy.js
-
 // Main function to process code elements
 function processCodeElements() {
   const preElements = document.querySelectorAll("pre");

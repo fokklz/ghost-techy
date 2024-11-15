@@ -1,3 +1,4 @@
+// Function to get the language label from the code class
 function getLanguageLabel(className) {
   const languageMap = {
     "language-bash": "Bash",
@@ -78,6 +79,7 @@ function getLanguageLabel(className) {
   return languageMap[className] || "Code"; // Default label if class isn't found
 }
 
+// Function to apply headers to code blocks
 function initializeHeaders() {
   let copyIndex = 0;
   document.querySelectorAll("pre").forEach((pre) => {
