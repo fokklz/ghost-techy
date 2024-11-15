@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.2.1] - 2024-11-15
+### :wrench: Chores
+- [`ca0883f`](https://github.com/fokklz/ghost-techy/commit/ca0883f447a002a1500fa4e6b9848ef9065a13c0) - bump version to 1.2.1 *(commit by [@fokklz](https://github.com/fokklz))*
+
+
 ## [v1.2.0] - 2024-11-15
 ### :sparkles: New Features
 - [`c7235dc`](https://github.com/fokklz/ghost-techy/commit/c7235dc234c5e0f6d95feebcabe8e80252ac7cbc) - **external-links**: improved handling *(commit by [@fokklz](https://github.com/fokklz))*
@@ -59,3 +64,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v1.0.1]: https://github.com/fokklz/ghost-techy/compare/v1.0.0...v1.0.1
 [v1.1.0]: https://github.com/fokklz/ghost-techy/compare/v1.0.1...v1.1.0
 [v1.2.0]: https://github.com/fokklz/ghost-techy/compare/v1.1.0...v1.2.0
+[v1.2.1]: https://github.com/fokklz/ghost-techy/compare/v1.2.0...v1.2.1
