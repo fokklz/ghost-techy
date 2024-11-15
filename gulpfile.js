@@ -47,6 +47,23 @@ function css(done) {
     ],
     handleError(done)
   );
+  pump(
+    [
+      src(
+        [
+          "node_modules/tippy.js/dist/tippy.css",
+          "node_modules/tocbot/dist/tocbot.css",
+          "assets/custom-techy/css/*.css",
+        ],
+        { sourcemaps: true }
+      ),
+      concat("techy.css"),
+      postcss([easyimport, autoprefixer(), cssnano()]),
+      dest("assets/built/", { sourcemaps: "." }),
+      livereload(),
+    ],
+    handleError(done)
+  );
 }
 
 function js(done) {
@@ -61,6 +78,32 @@ function js(done) {
         { sourcemaps: true }
       ),
       concat("source.js"),
+      uglify(),
+      dest("assets/built/", { sourcemaps: "." }),
+      livereload(),
+    ],
+    handleError(done)
+  );
+  pump(
+    [
+      src(
+        [
+          // markdown headers
+          "node_modules/clipboard/dist/clipboard.min.js",
+          // markdown annotations
+          "node_modules/marked/marked.min.js",
+          "node_modules/@popperjs/core/dist/umd/popper.min.js",
+          "node_modules/tippy.js/dist/tippy-bundle.umd.min.js",
+          // post toc
+          "node_modules/tocbot/dist/tocbot.min.js",
+          // treeify
+          "node_modules/treeify/treeify.js",
+          // custom js added by techy
+          "assets/custom-techy/js/*.js"
+        ],
+        { sourcemaps: true }
+      ),
+      concat("techy.js"),
       uglify(),
       dest("assets/built/", { sourcemaps: "." }),
       livereload(),
