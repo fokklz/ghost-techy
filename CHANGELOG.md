@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.2.0] - 2024-11-15
+### :sparkles: New Features
+- [`c7235dc`](https://github.com/fokklz/ghost-techy/commit/c7235dc234c5e0f6d95feebcabe8e80252ac7cbc) - **external-links**: improved handling *(commit by [@fokklz](https://github.com/fokklz))*
+- [`ca4b6a8`](https://github.com/fokklz/ghost-techy/commit/ca4b6a8ac8bc5d8daf5ffd8355fcb77cd1ccec7e) - **post-toc**: better mobile support *(commit by [@fokklz](https://github.com/fokklz))*
+
+### :construction_worker: Build System
+- [`322ceb3`](https://github.com/fokklz/ghost-techy/commit/322ceb30d06a1ea73a4bcf9c60c2212b145eabda) - using npm for building assets *(commit by [@fokklz](https://github.com/fokklz))*
+
+### :wrench: Chores
+- [`657be43`](https://github.com/fokklz/ghost-techy/commit/657be43ea7062022082ad6bf64aa4d6acf05bae8) - remove built files *(commit by [@fokklz](https://github.com/fokklz))*
+- [`946825f`](https://github.com/fokklz/ghost-techy/commit/946825fc89bac6b14313ee36f9ac95d8a760a9b9) - ignoring built assets *(commit by [@fokklz](https://github.com/fokklz))*
+- [`2f65907`](https://github.com/fokklz/ghost-techy/commit/2f65907e4e973f32992b84944656f63b402cbfb9) - moved deps from cdn to npm *(commit by [@fokklz](https://github.com/fokklz))*
+- [`eded9b9`](https://github.com/fokklz/ghost-techy/commit/eded9b9ec2c825648e2c9ef83d517acc14a72f5b) - bump version to 1.2.0 *(commit by [@fokklz](https://github.com/fokklz))*
+
+
 ## [v1.1.0] - 2024-11-13
 ### :sparkles: New Features
 - [`cdef3a0`](https://github.com/fokklz/ghost-techy/commit/cdef3a02c13c4d5636e48dd5529651a0ce1552fd) - **md-annotations**: improved support *(commit by [@fokklz](https://github.com/fokklz))*
@@ -43,3 +58,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v1.0.0]: https://github.com/fokklz/ghost-techy/compare/v0.0.0...v1.0.0
 [v1.0.1]: https://github.com/fokklz/ghost-techy/compare/v1.0.0...v1.0.1
 [v1.1.0]: https://github.com/fokklz/ghost-techy/compare/v1.0.1...v1.1.0
+[v1.2.0]: https://github.com/fokklz/ghost-techy/compare/v1.1.0...v1.2.0
