@@ -55,23 +55,19 @@ If there is a post you would like to not have a table of contents, you can go to
 
 ### Tree Structure
 
-Its not really intended, since the definition is intended in JSON. You can just add a `HTML` block and add the following code:
+Treeify needs a Object representation of the tree structure.
+You can just add a `HTML` block and add the following code:
 
 ```html
-<pre id="tree">
-  
+<pre class="tree">
+folder: {
+  config.yml: null
+},
+info.log: null
 </pre>
-<script>
-  document.getElementById('tree').innerHTML = treeify.asTree({
-      folder: {
-        "config.yml": null,
-      },
-      'info.log': null
-   }, true);
-</script>
 ```
-
-You can save this as a snippet and reuse it for multiple posts with ease. When you intend to use multiple, ensure to update the `id` of the `pre` tag and the `document.getElementById` parameter.
+The content of the `pre` tag will be parsed and displayed as a tree structure.
+There will automatically be added quotes around the keys and values. You can of course also use a proper JSON object.
 
 
 **Original README.md**
