@@ -134,6 +134,7 @@ function js_techy(done) {
           // treeify
           "node_modules/treeify/treeify.js",
           // custom js added by techy
+          "assets/custom-techy/js/core/*.js",
           "assets/custom-techy/js/*.js",
         ],
         { sourcemaps: true }
