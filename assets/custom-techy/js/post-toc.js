@@ -77,6 +77,10 @@ function initializeToC() {
 
 function updateHamburgerDisplay() {
   const sidebar = document.querySelector(".gh-sidebar");
+  if (!sidebar) {
+    return;
+  }
+
   const sidebarBox = sidebar.getBoundingClientRect();
   const mobileToc = document.getElementById("gh-mobile-toc");
   const size = navHeight + postHeader + sidebarBox.height;

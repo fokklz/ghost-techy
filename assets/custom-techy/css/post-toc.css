@@ -70,6 +70,7 @@ a.is-active-link {
   background-color: var(--background-color);
   z-index: 99999; /* Ensure it's on top of the content, may need to adjust the overall values to have a simpler time here */
   border-radius: 0;
+  height: 100vh;
   max-height: 100vh;
   overflow-y: auto;
 }
