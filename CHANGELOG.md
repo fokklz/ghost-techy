@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.3.0] - 2024-11-16
+### :sparkles: New Features
+- [`1edd95f`](https://github.com/fokklz/ghost-techy/commit/1edd95f5bf496d6d29f63f44184caf01fa9d8708) - **post-toc**: minor improvements *(commit by [@fokklz](https://github.com/fokklz))*
+- [`68f2171`](https://github.com/fokklz/ghost-techy/commit/68f21716648b50dead9a072a5af41236d1c3147b) - **treeify**: improved integration and usability *(commit by [@fokklz](https://github.com/fokklz))*
+
+### :wrench: Chores
+- [`61855f6`](https://github.com/fokklz/ghost-techy/commit/61855f69bac5d2f4a8484521c69aa3aab9c2987e) - bump version to 1.3.0 *(commit by [@fokklz](https://github.com/fokklz))*
+
+
 ## [v1.2.1] - 2024-11-15
 ### :wrench: Chores
 - [`ca0883f`](https://github.com/fokklz/ghost-techy/commit/ca0883f447a002a1500fa4e6b9848ef9065a13c0) - bump version to 1.2.1 *(commit by [@fokklz](https://github.com/fokklz))*
@@ -65,3 +74,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v1.1.0]: https://github.com/fokklz/ghost-techy/compare/v1.0.1...v1.1.0
 [v1.2.0]: https://github.com/fokklz/ghost-techy/compare/v1.1.0...v1.2.0
 [v1.2.1]: https://github.com/fokklz/ghost-techy/compare/v1.2.0...v1.2.1
+[v1.3.0]: https://github.com/fokklz/ghost-techy/compare/v1.2.1...v1.3.0
