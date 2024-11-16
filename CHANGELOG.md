@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.3.2] - 2024-11-16
+### :construction_worker: Build System
+- [`184bc3b`](https://github.com/fokklz/ghost-techy/commit/184bc3b226194d6b0fd7957347818359a9f76950) - fixed timing issue with gulp tasks *(commit by [@fokklz](https://github.com/fokklz))*
+
+### :wrench: Chores
+- [`f299fe0`](https://github.com/fokklz/ghost-techy/commit/f299fe0c260975ab48fbbb39ba5d874cc996e123) - bump version to 1.3.2 *(commit by [@fokklz](https://github.com/fokklz))*
+
+
 ## [v1.3.1] - 2024-11-16
 ### :bug: Bug Fixes
 - [`9e1d040`](https://github.com/fokklz/ghost-techy/commit/9e1d0405b1fbda3ee321f691ef7e1e17069d0950) - **treeify**: proper handling of multiple trees *(commit by [@fokklz](https://github.com/fokklz))*
@@ -84,3 +92,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v1.2.1]: https://github.com/fokklz/ghost-techy/compare/v1.2.0...v1.2.1
 [v1.3.0]: https://github.com/fokklz/ghost-techy/compare/v1.2.1...v1.3.0
 [v1.3.1]: https://github.com/fokklz/ghost-techy/compare/v1.3.0...v1.3.1
+[v1.3.2]: https://github.com/fokklz/ghost-techy/compare/v1.3.1...v1.3.2
