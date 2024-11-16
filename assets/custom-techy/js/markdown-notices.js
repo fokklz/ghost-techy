@@ -16,9 +16,17 @@ function processBlockquote(element) {
     return;
   }
 
-  const firstContent = element.querySelector("strong");
-  if (!firstContent) return;
-  
+  let firstContent = element.querySelector("strong");
+  if (!firstContent) {
+    // Maybe its inside a markdown block, therefore ghost will add a extra p tag and the identifier will just be text
+    firstContent = element.querySelector("p").childNodes[0];
+
+    // At this point we can give up
+    if (!firstContent) {
+      return;
+    }
+  }
+
   let icon = null;
   if (MD_NOTE_PATTERN.test(firstContent.textContent)) {
     element.classList.add("md-note");
