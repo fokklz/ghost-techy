@@ -15,7 +15,6 @@ const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
 const easyimport = require("postcss-easy-import");
 
-const excpectedFiles = 8;
 const packageJson = JSON.parse(fs.readFileSync("./package.json", "utf8"));
 packageJson.version = fs.readFileSync("./VERSION", "utf8").trim();
 fs.writeFileSync("./package.json", JSON.stringify(packageJson, null, 2) + "\n");
@@ -70,6 +69,35 @@ function js(done) {
   );
 }
 
+function zipper(done) {
+  const filename = require("./package.json").name + ".zip";
+  pump(
+    [
+      src([
+        "**",
+        "!node_modules",
+        "!node_modules/**",
+        "!test-env",
+        "!test-env/**",
+        "!dist",
+        "!dist/**",
+        "!yarn-error.log",
+        "!yarn.lock",
+        "!gulpfile.js",
+      ]),
+      zip(filename),
+      dest("dist/"),
+    ],
+    handleError(done)
+  );
+}
+
+const cssWatcher = () => watch("assets/css/**", css);
+const jsWatcher = () => watch("assets/js/**", js);
+const hbsWatcher = () => watch(["*.hbs", "partials/**/*.hbs"], hbs);
+const watcher = parallel(cssWatcher, jsWatcher, hbsWatcher);
+const build = series(css, js);
+
 function css_techy(done) {
   pump(
     [
@@ -118,35 +146,6 @@ function js_techy(done) {
     handleError(done)
   );
 }
-
-function zipper(done) {
-  const filename = require("./package.json").name + ".zip";
-  pump(
-    [
-      src([
-        "**",
-        "!node_modules",
-        "!node_modules/**",
-        "!test-env",
-        "!test-env/**",
-        "!dist",
-        "!dist/**",
-        "!yarn-error.log",
-        "!yarn.lock",
-        "!gulpfile.js",
-      ]),
-      zip(filename),
-      dest("dist/"),
-    ],
-    handleError(done)
-  );
-}
-
-const cssWatcher = () => watch("assets/css/**", css);
-const jsWatcher = () => watch("assets/js/**", js);
-const hbsWatcher = () => watch(["*.hbs", "partials/**/*.hbs"], hbs);
-const watcher = parallel(cssWatcher, jsWatcher, hbsWatcher);
-const build = series(css, js);
 
 const css_techyWatcher = () => watch("assets/custom-techy/css/**", css_techy);
 const js_techyWatcher = () => watch("assets/custom-techy/js/**", js_techy);
