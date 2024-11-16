@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.4.1] - 2024-11-16
+### :bug: Bug Fixes
+- [`79d7568`](https://github.com/fokklz/ghost-techy/commit/79d7568b46acf9066885af9b423abfd555007fbe) - **md-notices**: spacing and general layout *(commit by [@fokklz](https://github.com/fokklz))*
+
+### :wrench: Chores
+- [`7354b3d`](https://github.com/fokklz/ghost-techy/commit/7354b3dda9a47a6fdf209961d6c725bf4b8d7918) - bump version to 1.4.1 *(commit by [@fokklz](https://github.com/fokklz))*
+
+
 ## [v1.4.0] - 2024-11-16
 ### :sparkles: New Features
 - [`cd8bc61`](https://github.com/fokklz/ghost-techy/commit/cd8bc618a168600bf91efb4a3831da2bba24d32b) - **md-notices**: markdown notices with icons *(commit by [@fokklz](https://github.com/fokklz))*
@@ -105,3 +113,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v1.3.1]: https://github.com/fokklz/ghost-techy/compare/v1.3.0...v1.3.1
 [v1.3.2]: https://github.com/fokklz/ghost-techy/compare/v1.3.1...v1.3.2
 [v1.4.0]: https://github.com/fokklz/ghost-techy/compare/v1.3.2...v1.4.0
+[v1.4.1]: https://github.com/fokklz/ghost-techy/compare/v1.4.0...v1.4.1
