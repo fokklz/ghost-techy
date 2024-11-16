@@ -8,6 +8,7 @@ Techy is a Ghost theme based on the default theme Source, the goal of this theme
 
 - **Markdown Headers**: Headers are added to each markdown block, displaying the Language and a Copy button.
 - **Markdown Annotations**: With comments in the markdown-block, you can add annotations which are then added as a Info button with a tooltip.
+- **Markdown Notices**: Notices styling with neat icons.
 - **Post Table of Contents**: Using `tocbot` to inject a table of contents into the post.
 - **Tree Structure**: Uses `treeify` to create a tree structure to display how files are related to each other.
 
@@ -40,6 +41,42 @@ var x = 10; #::1
 #1?? This is a variable declaration
 ```
 `This is a variable declaration` will be the content of the info tooltip.
+
+### Markdown Notices
+
+```markdown
+> [!NOTE]  
+> Highlights information that users should take into account, even when skimming.
+
+> [!TIP]
+> Optional information to help a user be more successful.
+
+> [!IMPORTANT]  
+> Crucial information necessary for users to succeed.
+
+> [!WARNING]  
+> Critical content demanding immediate user attention due to potential risks.
+
+> [!CAUTION]
+> Negative potential consequences of an action.
+```
+
+The icons and colors are similar to the ones from github.
+
+> [!NOTE]  
+> Highlights information that users should take into account, even when skimming.
+
+> [!TIP]
+> Optional information to help a user be more successful.
+
+> [!IMPORTANT]  
+> Crucial information necessary for users to succeed.
+
+> [!WARNING]  
+> Critical content demanding immediate user attention due to potential risks.
+
+> [!CAUTION]
+> Negative potential consequences of an action.
 
 
 ### Post Table of Contents
