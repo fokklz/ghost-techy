@@ -1,0 +1,102 @@
+:root {
+  --md-note-foreground: #0969da;
+  --md-note-border: #0969da;
+  --md-note-background: #e4f0fe;
+
+  --md-tip-foreground: #1a7f37;
+  --md-tip-border: #1a7f37;
+  --md-tip-background: #e1f9e8;
+
+  --md-important-foreground: #8250df;
+  --md-important-border: #8250df;
+  --md-important-background: #f2edfc;
+
+  --md-warning-foreground: #9a6700;
+  --md-warning-border: #9a6700;
+  --md-warning-background: #fff3db;
+
+  --md-caution-foreground: #d1242f;
+  --md-caution-border: #d1242f;
+  --md-caution-background: #fbe8ea;
+
+  /** 
+  The background color is 90% lighten than the foreground color 
+  using: https://mdigi.tools/lighten-color/
+  */
+}
+
+blockquote.md-note {
+  border-left-color: var(--md-note-border);
+  background-color: var(--md-note-background);
+}
+blockquote.md-note .md-alert-title {
+  color: var(--md-note-foreground);
+}
+blockquote.md-note .md-alert-title svg {
+  fill: var(--md-note-foreground);
+}
+
+blockquote.md-tip {
+  border-left-color: var(--md-tip-border);
+  background-color: var(--md-tip-background);
+}
+blockquote.md-tip .md-alert-title {
+  color: var(--md-tip-foreground);
+}
+blockquote.md-tip .md-alert-title svg {
+  fill: var(--md-tip-foreground);
+}
+
+blockquote.md-important {
+  border-left-color: var(--md-important-border);
+  background-color: var(--md-important-background);
+}
+blockquote.md-important .md-alert-title {
+  color: var(--md-important-foreground);
+}
+blockquote.md-important .md-alert-title svg {
+  fill: var(--md-important-foreground);
+}
+
+blockquote.md-warning {
+  border-left-color: var(--md-warning-border);
+  background-color: var(--md-warning-background);
+}
+blockquote.md-warning .md-alert-title {
+  color: var(--md-warning-foreground);
+}
+blockquote.md-warning .md-alert-title svg {
+  fill: var(--md-warning-foreground);
+}
+
+blockquote.md-caution {
+  border-left-color: var(--md-caution-border);
+  background-color: var(--md-caution-background);
+}
+blockquote.md-caution .md-alert-title {
+  color: var(--md-caution-foreground);
+}
+blockquote.md-caution .md-alert-title svg {
+  fill: var(--md-caution-foreground);
+}
+
+.md-alert {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-left-width: 4px;
+  border-left-style: solid;
+  box-sizing: border-box;
+}
+
+.md-alert-title {
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  padding-top: 0.5rem;
+  padding-bottom: 1.1rem;
+}
+
+.md-alert-title svg {
+  margin-right: 0.7rem;
+}
