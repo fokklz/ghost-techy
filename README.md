@@ -129,6 +129,15 @@ The `zip` Gulp task packages the theme files into `dist/techy.zip`, which you ca
 yarn zip
 ```
 
+## Hooks
+
+Since the release action will add a commit to the repository, you can use the `.githooks` which has a `pre-commit` hook that will automatically pull the latest changes from the repository before committing.
+
+To use the hooks, you need to set the `core.hooksPath` to the `.githooks` directory.
+```bash
+git config core.hooksPath .githooks
+```
+
 ## Credits
 
 This theme is based on the default theme for Ghost called Source. I try to minimize the changes to the original theme and files as much as possible so when Source gets updated, it should be easy to merge the changes.

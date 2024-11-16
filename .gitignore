@@ -29,3 +29,5 @@ changelog.md.bk
 
 test-env
 assets/built
+
+!.git/hooks/pre-commit
