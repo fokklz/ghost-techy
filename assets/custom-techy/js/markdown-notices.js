@@ -18,12 +18,7 @@ function processBlockquote(element) {
 
   const firstContent = element.querySelector("strong");
   if (!firstContent) return;
-
-  const lineBreak = element.querySelector("strong").querySelector("br");
-  if (lineBreak) {
-    lineBreak.remove();
-  }
-
+  
   let icon = null;
   if (MD_NOTE_PATTERN.test(firstContent.textContent)) {
     element.classList.add("md-note");

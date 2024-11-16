@@ -81,12 +81,13 @@ blockquote.md-caution .md-alert-title svg {
 }
 
 .md-alert {
-  display: flex;
-  flex-direction: column;
   padding: 1rem;
   border-left-width: 4px;
   border-left-style: solid;
   box-sizing: border-box;
+}
+.md-alert br:first-of-type {
+  display: none;
 }
 
 .md-alert-title {
