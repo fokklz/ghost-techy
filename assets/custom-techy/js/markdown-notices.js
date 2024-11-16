@@ -27,29 +27,35 @@ function processBlockquote(element) {
     }
   }
 
+  let text = firstContent.textContent;
   let icon = null;
-  if (MD_NOTE_PATTERN.test(firstContent.textContent)) {
+  if (MD_NOTE_PATTERN.test(text)) {
     element.classList.add("md-note");
     icon = MD_NOTE;
-  } else if (MD_TIP_PATTERN.test(firstContent.textContent)) {
+    text = "Note";
+  } else if (MD_TIP_PATTERN.test(text)) {
     element.classList.add("md-tip");
     icon = MD_TIP;
-  } else if (MD_IMPORTANT_PATTERN.test(firstContent.textContent)) {
+    text = "Tip";
+  } else if (MD_IMPORTANT_PATTERN.test(text)) {
     element.classList.add("md-important");
     icon = MD_IMPORTANT;
-  } else if (MD_WARNING_PATTERN.test(firstContent.textContent)) {
+    text = "Important";
+  } else if (MD_WARNING_PATTERN.test(text)) {
     element.classList.add("md-warning");
     icon = MD_WARNING;
-  } else if (MD_CAUTION_PATTERN.test(firstContent.textContent)) {
+    text = "Warning";
+  } else if (MD_CAUTION_PATTERN.test(text)) {
     element.classList.add("md-caution");
     icon = MD_STOP;
+    text = "Caution";
   }
   element.classList.add("md-alert");
 
   firstContent.outerHTML = `
         <p class="md-alert-title">
             ${icon}
-            ${firstContent.textContent}
+            ${text}
         </p>`;
 }
 
