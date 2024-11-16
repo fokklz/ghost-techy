@@ -1,0 +1,8 @@
+pre.tree {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+pre.tree.processed {
+  opacity: 1;
+}
