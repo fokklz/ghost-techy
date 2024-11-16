@@ -1,17 +1,26 @@
 function doTrees() {
-  const treeElement = document.querySelector(".tree");
-  const { fullText, _ } = getFullTextAndNodeInfo(treeElement);
+  const treeElements = document.querySelectorAll(".tree");
+  treeElements.forEach((element) => {
+    processTree(element);
+  });
+}
+
+function processTree(element) {
+  if (element.classList.contains("processed")) {
+    return;
+  }
+
+  const { fullText, _ } = getFullTextAndNodeInfo(element);
   let content = fullText.trim();
 
-  const pattern = /^\W+{/gm;
-  if (!pattern.test(content)) {
+  if (!/^\W+{/gm.test(content)) {
     content = `{ ${content} }`;
   }
 
   try {
     const parsedContent = parseJsLikeObject(content);
-    treeElement.innerHTML = window.treeify.asTree(parsedContent, true);
-    treeElement.classList.add("processed");
+    element.innerHTML = window.treeify.asTree(parsedContent, true);
+    element.classList.add("processed");
   } catch (error) {
     console.error(error);
   }
