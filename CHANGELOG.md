@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.4.2] - 2024-11-17
+### :sparkles: New Features
+- [`8151f6a`](https://github.com/fokklz/ghost-techy/commit/8151f6a59385fdcdb22409f0cfac0a645eaad43f) - **md-notices**: normalized notice headers *(commit by [@fokklz](https://github.com/fokklz))*
+
+### :bug: Bug Fixes
+- [`746f41d`](https://github.com/fokklz/ghost-techy/commit/746f41d472eecd7f16c8ec3d55526be2959b01e2) - **md-notices**: proper parsing inside markdown *(commit by [@fokklz](https://github.com/fokklz))*
+
+### :wrench: Chores
+- [`e196bde`](https://github.com/fokklz/ghost-techy/commit/e196bde5937b12bbbfa447bbcb6a15b905659009) - pre-commit hook to auto-pull before commit *(commit by [@fokklz](https://github.com/fokklz))*
+- [`14103f9`](https://github.com/fokklz/ghost-techy/commit/14103f98522d02758185526242ffe239443bfb01) - bump version to 1.4.2 *(commit by [@fokklz](https://github.com/fokklz))*
+
+
 ## [v1.4.1] - 2024-11-16
 ### :bug: Bug Fixes
 - [`79d7568`](https://github.com/fokklz/ghost-techy/commit/79d7568b46acf9066885af9b423abfd555007fbe) - **md-notices**: spacing and general layout *(commit by [@fokklz](https://github.com/fokklz))*
@@ -114,3 +126,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v1.3.2]: https://github.com/fokklz/ghost-techy/compare/v1.3.1...v1.3.2
 [v1.4.0]: https://github.com/fokklz/ghost-techy/compare/v1.3.2...v1.4.0
 [v1.4.1]: https://github.com/fokklz/ghost-techy/compare/v1.4.0...v1.4.1
+[v1.4.2]: https://github.com/fokklz/ghost-techy/compare/v1.4.1...v1.4.2
